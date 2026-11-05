@@ -51,6 +51,41 @@ namespace ProductsWithRouting
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "product-not-found",
+                    pattern: "products/not-found",
+                    defaults: new { controller = "Products", action = "ProductNotFound" });
+
+                endpoints.MapControllerRoute(
+                    name: "product-create",
+                    pattern: "products/create",
+                    defaults: new { controller = "Products", action = "Create" });
+
+                endpoints.MapControllerRoute(
+                    name: "product-new",
+                    pattern: "products/new",
+                    defaults: new { controller = "Products", action = "Create" });
+
+                endpoints.MapControllerRoute(
+                    name: "product-edit",
+                    pattern: "products/edit/{id:int}",
+                    defaults: new { controller = "Products", action = "Edit" });
+
+                endpoints.MapControllerRoute(
+                    name: "product-delete",
+                    pattern: "products/delete/{id:int}",
+                    defaults: new { controller = "Products", action = "Delete" });
+
+                endpoints.MapControllerRoute(
+                    name: "product-details",
+                    pattern: "products/{id:int}",
+                    defaults: new { controller = "Products", action = "View" });
+
+                endpoints.MapControllerRoute(
+                    name: "items",
+                    pattern: "items/{action=Index}/{id?}",
+                    defaults: new { controller = "Products" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });

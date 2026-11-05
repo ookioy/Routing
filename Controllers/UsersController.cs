@@ -19,8 +19,20 @@ namespace ProductsWithRouting.Controllers
             myUsers = data.Users;
         }
 
-        public IActionResult Index(string id)
+        [HttpGet]
+        public IActionResult Index()
         {
+            return Unauthorized();
+        }
+
+        [HttpPost]
+        public IActionResult Index([FromForm] string parameter)
+        {
+            if (parameter != "df2323eoT")
+            {
+                return Unauthorized();
+            }
+
             return View(myUsers);
         }
 
